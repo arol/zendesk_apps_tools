@@ -25,7 +25,7 @@ module ZendeskAppsTools
 
       def assets_hash
         assets.each_with_object({}) do |(k,v), h|
-          parametrized = k.gsub(/[^a-z0-9\-_]+/, '-')
+          parametrized = k.gsub(/[^a-z0-9\-_]+/i, '-').downcase
           h["assets-#{parametrized}"] = v
         end
       end
